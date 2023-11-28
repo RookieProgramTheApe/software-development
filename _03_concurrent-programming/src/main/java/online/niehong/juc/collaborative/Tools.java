@@ -13,9 +13,9 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Tools {
     public static void main(String[] args) {
-//        countDownLatch(new CountDownLatch(5));
-//        semaphore(new Semaphore(2), 5);
-//        cyclicBarrier(new CyclicBarrier(3, () -> System.out.println("存入银行")));
+        countDownLatch(new CountDownLatch(5));
+        semaphore(new Semaphore(2), 5);
+        cyclicBarrier(new CyclicBarrier(3, () -> System.out.println("存入银行")));
         condition();
     }
 
