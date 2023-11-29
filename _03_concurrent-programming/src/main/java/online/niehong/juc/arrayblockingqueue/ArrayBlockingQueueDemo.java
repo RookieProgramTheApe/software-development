@@ -1,9 +1,7 @@
 package online.niehong.juc.arrayblockingqueue;
 
-import com.sun.org.apache.regexp.internal.REUtil;
 import lombok.SneakyThrows;
 
-import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
@@ -74,7 +72,7 @@ public class ArrayBlockingQueueDemo {
         public void run() {
             // 如果队列没有数据直接返回
             String take = queue.take();
-            while (!FINISH.equals(take)){
+            while (!FINISH.equals(take)) {
                 System.out.println("买家：" + take + " 被买走了");
                 TimeUnit.SECONDS.sleep(1);
                 take = queue.take();
