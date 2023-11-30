@@ -1,9 +1,6 @@
 package online.niehong.juc.threadpool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * 线程池演示
@@ -28,6 +25,7 @@ public class ThreadPoolDemo {
         newSingleThreadExecutor();
         newCachedThreadPool();
         newScheduledThreadPool();
+        createdThreadPool();
     }
 
     /**
@@ -41,6 +39,8 @@ public class ThreadPoolDemo {
         for (int i = 0; i < 100; i++) {
             executorService.execute(THREAD);
         }
+
+        executorService.submit(new Thread(() -> {}));
     }
 
     /**
@@ -73,5 +73,22 @@ public class ThreadPoolDemo {
         executorService.schedule(THREAD, 3, TimeUnit.SECONDS);
         // 在到达指定的初始时间(initialDelay)后开始执行给定的线程任务，后续以period参数指定的延迟时间循环执行
         executorService.scheduleAtFixedRate(THREAD, 1, 3, TimeUnit.SECONDS);
+    }
+
+    /**
+     * 手动创建线程池
+     *
+     * @return {@link Executors}
+     */
+    private static ThreadPoolExecutor createdThreadPool() {
+        return new ThreadPoolExecutor(
+                5, // 核心线程数
+                10, // 最大线程数
+                60L, // 空闲线程存活时间
+                TimeUnit.SECONDS, // 时间单位
+                new ArrayBlockingQueue<>(10), // 工作队列，大小为10
+                Executors.defaultThreadFactory(), // 线程工厂
+                new ThreadPoolExecutor.AbortPolicy() // 拒绝策略
+        );
     }
 }
