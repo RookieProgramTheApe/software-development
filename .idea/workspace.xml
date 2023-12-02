@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="fix(network-programming): BIO代码示例">
+      <change afterPath="$PROJECT_DIR$/_04_network-programming/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.8.0_131/src.zip!/java/io/InputStream.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Thread.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/ThreadLocal.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.8.0_131/src.zip!/java/util/concurrent/ArrayBlockingQueue.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.8.0_131/src.zip!/java/util/concurrent/locks/ReentrantLock.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\workSpace\repository" />
+        <option name="mavenHome" value="D:/workSpace/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\workSpace\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2Yk5Y5lXuW7rJalXNHDxVo2JTvI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "04-network-programming",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "C:/workSpace/workSpace/backup/learn-2023/software-development/_04_network-programming",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workSpace\workSpace\backup\learn-2023\software-development\_03_concurrent-programming" />
+      <recent name="C:\workSpace\workSpace\backup\learn-2023\software-development\_03_concurrent-programming\src\main\java\online\niehong\juc\reentrantlock" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.TCPServer">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="online.niehong.bio.Client" />
+      <module name="_04_network-programming" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="online.niehong.bio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReferenceTypeDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="online.niehong.reference.ReferenceTypeDemo" />
+      <module name="_02_jvm-hotspot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="online.niehong.reference.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SoftReferenceDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="online.niehong.reference.SoftReferenceDemo" />
+      <option name="VM_PARAMETERS" value="-Xms10m -Xmx10m -XX:+PrintGCDetails" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="online.niehong.reference.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TCPServer" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="online.niehong.bio.Server" />
+      <module name="_04_network-programming" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="online.niehong.bio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="_03_concurrent-programming" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="应用程序.TCPServer" />
+      <item itemvalue="应用程序.Client" />
+      <item itemvalue="应用程序.SoftReferenceDemo" />
+      <item itemvalue="应用程序.ReferenceTypeDemo" />
+      <item itemvalue="应用程序.Test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.TCPServer" />
+        <item itemvalue="应用程序.Test" />
+        <item itemvalue="应用程序.ReferenceTypeDemo" />
+        <item itemvalue="应用程序.SoftReferenceDemo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="" />
+      <created>1701056781300</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701056781300</updated>
+      <workItem from="1701056784529" duration="389000" />
+      <workItem from="1701057176458" duration="1044000" />
+      <workItem from="1701058262495" duration="832000" />
+      <workItem from="1701059101903" duration="536000" />
+      <workItem from="1701059641906" duration="29000" />
+      <workItem from="1701059673241" duration="57000" />
+      <workItem from="1701059746542" duration="9308000" />
+      <workItem from="1701078135353" duration="4130000" />
+      <workItem from="1701098541080" duration="1280000" />
+      <workItem from="1701100119676" duration="1601000" />
+      <workItem from="1701145242306" duration="9702000" />
+      <workItem from="1701194013231" duration="52000" />
+      <workItem from="1701194995082" duration="644000" />
+      <workItem from="1701274992422" duration="11243000" />
+      <workItem from="1701324833720" duration="17388000" />
+      <workItem from="1701498801275" duration="6536000" />
+      <workItem from="1701539564242" duration="44000" />
+      <workItem from="1701539627227" duration="118000" />
+      <workItem from="1701539763586" duration="2930000" />
+    </task>
+    <task id="LOCAL-00001" summary="build(构建): 项目构建">
+      <option name="closed" value="true" />
+      <created>1701057063047</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701057063047</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat(module): 新建分支performance-optimization">
+      <option name="closed" value="true" />
+      <created>1701057467222</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701057467222</updated>
+    </task>
+    <task id="LOCAL-00003" summary="docs: 添加类注释">
+      <option name="closed" value="true" />
+      <created>1701057727679</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701057727679</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat(module): 新建分支jvm-hotspot">
+      <option name="closed" value="true" />
+      <created>1701059396670</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701059396670</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat(module): 新建分支concurrent-programming">
+      <option name="closed" value="true" />
+      <created>1701060032906</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701060032906</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat(concurrent-programming): 源码分析&#10;&#10;添加可重入锁源码时序图和类图">
+      <option name="closed" value="true" />
+      <created>1701074563972</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701074563972</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat(reference): Java的四种引用类型">
+      <option name="closed" value="true" />
+      <created>1701077950783</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701077950783</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix(reference): 移除未使用的import">
+      <option name="closed" value="true" />
+      <created>1701078000469</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701078000469</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix(reference): 引用类型生命周期打印">
+      <option name="closed" value="true" />
+      <created>1701098321036</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701098321036</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat(JUC): 并发工具类&#10;&#10;计数门闩的使用示例">
+      <option name="closed" value="true" />
+      <created>1701146917099</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701146917099</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix(JUC): 并发工具类&#10;&#10;信号量的使用示例">
+      <option name="closed" value="true" />
+      <created>1701149888928</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701149888928</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix(JUC): 并发工具类&#10;&#10;循环栅栏的使用示例">
+      <option name="closed" value="true" />
+      <created>1701151759901</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1701151759901</updated>
+    </task>
+    <task id="LOCAL-00013" summary="docs(concurrent-programming): 学习笔记">
+      <option name="closed" value="true" />
+      <created>1701277683728</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701277683728</updated>
+    </task>
+    <task id="LOCAL-00014" summary="docs(concurrent-programming): 学习笔记更新">
+      <option name="closed" value="true" />
+      <created>1701278753008</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701278753008</updated>
+    </task>
+    <task id="LOCAL-00015" summary="docs(concurrent-programming): 学习笔记更新">
+      <option name="closed" value="true" />
+      <created>1701281989831</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701281989831</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix(concurrent-programming): 添加Lombok坐标">
+      <option name="closed" value="true" />
+      <created>1701288870779</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701288870779</updated>
+    </task>
+    <task id="LOCAL-00017" summary="docs(concurrent-programming): 笔记内容增加并发队列">
+      <option name="closed" value="true" />
+      <created>1701289126530</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701289126530</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat(concurrent-programming): 并发队列&#10;&#10;并发阻塞队列代码示例">
+      <option name="closed" value="true" />
+      <created>1701289197173</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701289197173</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix(concurrent-programming): 并发队列&#10;&#10;并发阻塞队列代码示例格式修改">
+      <option name="closed" value="true" />
+      <created>1701289315468</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1701289315468</updated>
+    </task>
+    <task id="LOCAL-00020" summary="docs(concurrent-programming): 线程池内容更新">
+      <option name="closed" value="true" />
+      <created>1701330260585</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701330260585</updated>
+    </task>
+    <task id="LOCAL-00021" summary="docs(concurrent-programming): 线程池内容更新">
+      <option name="closed" value="true" />
+      <created>1701333655229</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1701333655229</updated>
+    </task>
+    <task id="LOCAL-00022" summary="feat(concurrent-programming): 线程池自动创建方式&#10;&#10;线程池自动创建方式代码示例">
+      <option name="closed" value="true" />
+      <created>1701333709506</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1701333709506</updated>
+    </task>
+    <task id="LOCAL-00023" summary="docs(concurrent-programming): 笔记更新">
+      <option name="closed" value="true" />
+      <created>1701358133751</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1701358133751</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix(concurrent-programming): 添加线程池手动创建示例">
+      <option name="closed" value="true" />
+      <created>1701358270976</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701358270976</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat(concurrent-programming): ThreadLocal&#10;&#10;ThreadLocal变量使用示例">
+      <option name="closed" value="true" />
+      <created>1701364324270</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1701364324270</updated>
+    </task>
+    <task id="LOCAL-00026" summary="docs(concurrent-programming): 学习笔记&#10;&#10;新增ThreadLocal相关笔记">
+      <option name="closed" value="true" />
+      <created>1701364361981</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1701364361981</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat(concurrent-programming): ThreadLocal&#10;&#10;ThreadLocal变量使用示例">
+      <option name="closed" value="true" />
+      <created>1701364555989</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1701364555989</updated>
+    </task>
+    <task id="LOCAL-00028" summary="docs(concurrent-programming): 学习笔记&#10;&#10;新增ThreadLocal相关笔记">
+      <option name="closed" value="true" />
+      <created>1701364769088</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1701364769088</updated>
+    </task>
+    <task id="LOCAL-00029" summary="docs(concurrent-programming): 学习笔记&#10;&#10;更新ThreadLocal相关笔记">
+      <option name="closed" value="true" />
+      <created>1701364905607</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1701364905607</updated>
+    </task>
+    <task id="LOCAL-00030" summary="docs(concurrent-programming): 学习笔记&#10;&#10;新增Future相关笔记">
+      <option name="closed" value="true" />
+      <created>1701367831767</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1701367831767</updated>
+    </task>
+    <task id="LOCAL-00031" summary="feat(module): 新建分支network-programming">
+      <option name="closed" value="true" />
+      <created>1701368172880</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1701368172880</updated>
+    </task>
+    <task id="LOCAL-00032" summary="docs(network-programming): 学习笔记">
+      <option name="closed" value="true" />
+      <created>1701533860304</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1701533860304</updated>
+    </task>
+    <task id="LOCAL-00033" summary="docs(network-programming): 学习笔记">
+      <option name="closed" value="true" />
+      <created>1701533874594</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1701533874594</updated>
+    </task>
+    <task id="LOCAL-00034" summary="feat(network-programming): BIO代码示例">
+      <option name="closed" value="true" />
+      <created>1701542399498</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1701542399498</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix(network-programming): BIO代码示例">
+      <option name="closed" value="true" />
+      <created>1701542441775</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1701542441775</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="03-concurrent-programming" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/03-concurrent-programming" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="feat(JUC): 并发工具类&#10;&#10;计数门闩的使用示例" />
+    <MESSAGE value="fix(JUC): 并发工具类&#10;&#10;信号量的使用示例" />
+    <MESSAGE value="fix(JUC): 并发工具类&#10;&#10;循环栅栏的使用示例" />
+    <MESSAGE value="docs(concurrent-programming): 学习笔记更新" />
+    <MESSAGE value="fix(concurrent-programming): 添加Lombok坐标" />
+    <MESSAGE value="docs(concurrent-programming): 笔记内容增加并发队列" />
+    <MESSAGE value="feat(concurrent-programming): 并发队列&#10;&#10;并发阻塞队列代码示例" />
+    <MESSAGE value="Merge branch '03-concurrent-programming'" />
+    <MESSAGE value="fix(concurrent-programming): 并发队列&#10;&#10;并发阻塞队列代码示例格式修改" />
+    <MESSAGE value="docs(concurrent-programming): 线程池内容更新" />
+    <MESSAGE value="feat(concurrent-programming): 线程池自动创建方式&#10;&#10;线程池自动创建方式代码示例" />
+    <MESSAGE value="docs(concurrent-programming): 笔记更新" />
+    <MESSAGE value="docs(concurrent-programming): 学习笔记" />
+    <MESSAGE value="fix(concurrent-programming): 添加线程池手动创建示例" />
+    <MESSAGE value="feat(concurrent-programming): 学习笔记&#10;&#10;新增ThreadLocal相关笔记" />
+    <MESSAGE value="feat(concurrent-programming): ThreadLocal" />
+    <MESSAGE value="feat(concurrent-programming): ThreadLocal&#10;&#10;ThreadLocal变量使用示例" />
+    <MESSAGE value="docs(concurrent-programming): 学习笔记&#10;&#10;新增ThreadLocal相关笔记" />
+    <MESSAGE value="docs(concurrent-programming): 学习笔记&#10;&#10;更新ThreadLocal相关笔记" />
+    <MESSAGE value="docs(concurrent-programming): 学习笔记&#10;&#10;新增Future相关笔记" />
+    <MESSAGE value="feat(module): 新建分支network-programming" />
+    <MESSAGE value="fix(module): 新建分支network-programming" />
+    <MESSAGE value="docs(network-programming): 学习笔记" />
+    <MESSAGE value="feat(network-programming): BIO代码示例" />
+    <MESSAGE value="fix(network-programming): BIO代码示例" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(network-programming): BIO代码示例" />
+  </component>
+</project>
