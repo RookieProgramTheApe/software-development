@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * tcpserver
+ * TCP-Server
  * - 说明：先启动Server类，不然客户端连接会被拒绝
  *
  * @author NieHong
