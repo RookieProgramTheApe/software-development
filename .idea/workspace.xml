@@ -7,8 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="fix(network-programming): BIO代码示例">
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/.gitignore" afterDir="false" />
+    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="docs(network-programming): 笔记更新">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_04_network-programming/notes/网络编程.md" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/notes/网络编程.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,27 +62,27 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "04-network-programming",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/workSpace/workSpace/backup/learn-2023/software-development/_04_network-programming",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;04-network-programming&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/workSpace/workSpace/backup/learn-2023/software-development/_04_network-programming&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\workSpace\workSpace\backup\learn-2023\software-development\_03_concurrent-programming" />
@@ -157,10 +158,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.TCPServer" />
         <item itemvalue="应用程序.Test" />
         <item itemvalue="应用程序.ReferenceTypeDemo" />
         <item itemvalue="应用程序.SoftReferenceDemo" />
+        <item itemvalue="应用程序.Client" />
+        <item itemvalue="应用程序.TCPServer" />
       </list>
     </recent_temporary>
   </component>
@@ -472,7 +474,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701542441775</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="docs(network-programming): 笔记更新">
+      <option name="closed" value="true" />
+      <created>1701544181073</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1701544181073</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,8 +543,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(JUC): 并发工具类&#10;&#10;计数门闩的使用示例" />
-    <MESSAGE value="fix(JUC): 并发工具类&#10;&#10;信号量的使用示例" />
     <MESSAGE value="fix(JUC): 并发工具类&#10;&#10;循环栅栏的使用示例" />
     <MESSAGE value="docs(concurrent-programming): 学习笔记更新" />
     <MESSAGE value="fix(concurrent-programming): 添加Lombok坐标" />
@@ -557,7 +565,9 @@
     <MESSAGE value="fix(module): 新建分支network-programming" />
     <MESSAGE value="docs(network-programming): 学习笔记" />
     <MESSAGE value="feat(network-programming): BIO代码示例" />
+    <MESSAGE value="chore(network-programming): 项目配置相关" />
     <MESSAGE value="fix(network-programming): BIO代码示例" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(network-programming): BIO代码示例" />
+    <MESSAGE value="docs(network-programming): 笔记更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(network-programming): 笔记更新" />
   </component>
 </project>
