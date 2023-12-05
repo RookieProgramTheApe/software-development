@@ -7,24 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="docs(network-programming): NIO相关笔记">
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/notes/image/nettyThreadPool.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/notes/image/nettythreadModel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/notes/image/nettythreadPoolModel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/ClientNetty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/ServerNetty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/handler/ClientNettyHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/handler/ServerNettyHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/handler/ChatClientChannelHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/handler/ChatServerChannelHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/src/test/java/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="fix(network-programming): Netty相关代码示例">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_04_network-programming/notes/网络编程.md" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/notes/网络编程.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_04_network-programming/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/ClientNetty.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/ClientNetty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/handler/ServerNettyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/handler/ServerNettyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +239,7 @@
       <workItem from="1701670905087" duration="4514000" />
       <workItem from="1701710285357" duration="131000" />
       <workItem from="1701710432777" duration="2866000" />
-      <workItem from="1701759302275" duration="13075000" />
+      <workItem from="1701759302275" duration="13769000" />
     </task>
     <task id="LOCAL-00001" summary="build(构建): 项目构建">
       <option name="closed" value="true" />
@@ -549,7 +537,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701544298850</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="docs(network-programming): Netty相关笔记">
+      <option name="closed" value="true" />
+      <created>1701774351201</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1701774351201</updated>
+    </task>
+    <task id="LOCAL-00039" summary="fix(network-programming): Netty相关代码示例">
+      <option name="closed" value="true" />
+      <created>1701774448539</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1701774448539</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,6 +565,16 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/03-concurrent-programming" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/04-network-programming" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="04-network-programming" />
@@ -581,11 +595,6 @@
                   <option value="master" />
                 </option>
               </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/03-concurrent-programming" />
-                </option>
-              </RecentGroup>
             </list>
           </value>
         </entry>
@@ -595,19 +604,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="04-network-programming" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -615,9 +612,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix(JUC): 并发工具类&#10;&#10;循环栅栏的使用示例" />
-    <MESSAGE value="docs(concurrent-programming): 学习笔记更新" />
-    <MESSAGE value="fix(concurrent-programming): 添加Lombok坐标" />
     <MESSAGE value="docs(concurrent-programming): 笔记内容增加并发队列" />
     <MESSAGE value="feat(concurrent-programming): 并发队列&#10;&#10;并发阻塞队列代码示例" />
     <MESSAGE value="Merge branch '03-concurrent-programming'" />
@@ -640,7 +634,10 @@
     <MESSAGE value="chore(network-programming): 项目配置相关" />
     <MESSAGE value="fix(network-programming): BIO代码示例" />
     <MESSAGE value="docs(network-programming): 笔记更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(network-programming): 笔记更新" />
+    <MESSAGE value="docs(network-programming): Netty相关笔记" />
+    <MESSAGE value="docs(network-programming): Netty相关代码示例" />
+    <MESSAGE value="fix(network-programming): Netty相关代码示例" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(network-programming): Netty相关代码示例" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

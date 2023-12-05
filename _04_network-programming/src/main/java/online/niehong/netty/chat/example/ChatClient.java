@@ -22,6 +22,7 @@ import java.util.Scanner;
  * @date 2023/12/05
  */
 @Data
+@SuppressWarnings("InfiniteLoopStatement")
 public class ChatClient {
     /**
      * 主机

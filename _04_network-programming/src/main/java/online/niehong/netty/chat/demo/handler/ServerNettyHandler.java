@@ -14,8 +14,8 @@ public class ServerNettyHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 读取从客户端发来的信息
-     * @param ctx
-     * @param msg
+     * @param ctx 事件处理上下文对象
+     * @param msg 消息
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
@@ -25,7 +25,7 @@ public class ServerNettyHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 数据读取完毕，回复客户端
-     * @param ctx
+     * @param ctx 事件处理上下文对象
      */
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
