@@ -7,22 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="docs(network-programming): 笔记更新">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/smartfox_info.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/nio-copy.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/nio.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/notes/image/buffer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/notes/image/channel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/notes/image/flip.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/notes/image/nio-fio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/nio/NonBlockingIOExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="fix(network-programming): Netty相关代码示例">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_04_network-programming/notes/网络编程.md" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/notes/网络编程.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_04_network-programming/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/ClientNetty.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/ClientNetty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/handler/ServerNettyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/handler/ServerNettyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +74,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;04-network-programming&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/workSpace/workSpace/backup/learn-2023/software-development/_04_network-programming&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/workSpace/workSpace/backup-gaoyi/scs-cloud&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -93,23 +83,91 @@
     &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="online.niehong.netty.chat.example.handler" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\workSpace\workSpace\backup\learn-2023\software-development\_03_concurrent-programming" />
       <recent name="C:\workSpace\workSpace\backup\learn-2023\software-development\_03_concurrent-programming\src\main\java\online\niehong\juc\reentrantlock" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NonBlockingIOExample.fileCopy">
-    <configuration name="ReferenceTypeDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="online.niehong.reference.ReferenceTypeDemo" />
-      <module name="_02_jvm-hotspot" />
+  <component name="RunManager" selected="应用程序.ChatClient (测试)">
+    <configuration name="ChatClient (测试)" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="online.niehong.netty.chat.example.ChatClient" />
+      <module name="_04_network-programming" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="online.niehong.reference.*" />
+          <option name="PATTERN" value="online.niehong.netty.chat.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="online.niehong.netty.chat.example.ChatClient" />
+      <module name="_04_network-programming" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="online.niehong.netty.chat.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="online.niehong.netty.chat.example.ChatServer" />
+      <module name="_04_network-programming" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="online.niehong.netty.chat.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientNetty" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="online.niehong.netty.chat.demo.ClientNetty" />
+      <module name="_04_network-programming" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="online.niehong.netty.chat.demo.handler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NettyClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="online.niehong.netty.NettyClient" />
+      <module name="_04_network-programming" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="online.niehong.netty.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerNetty" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="online.niehong.netty.chat.demo.ServerNetty" />
+      <module name="_04_network-programming" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="online.niehong.netty.chat.demo.handler.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -130,76 +188,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
-      <module name="_03_concurrent-programming" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NioExample.fileWrite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="_04_network-programming" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="online.niehong.nio.NonBlockingIOExample" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="online.niehong.nio" />
-      <option name="MAIN_CLASS_NAME" value="online.niehong.nio.NioExample" />
-      <option name="METHOD_NAME" value="fileWrite" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NonBlockingIOExample.fileCopy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="_04_network-programming" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="online.niehong.nio.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="online.niehong.nio" />
-      <option name="MAIN_CLASS_NAME" value="online.niehong.nio.NonBlockingIOExample" />
-      <option name="METHOD_NAME" value="fileCopy" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NonBlockingIOExample.fileRead" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="_04_network-programming" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="online.niehong.nio.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="online.niehong.nio" />
-      <option name="MAIN_CLASS_NAME" value="online.niehong.nio.NonBlockingIOExample" />
-      <option name="METHOD_NAME" value="fileRead" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="JUnit.NonBlockingIOExample.fileCopy" />
-      <item itemvalue="JUnit.NioExample.fileWrite" />
-      <item itemvalue="JUnit.NonBlockingIOExample.fileRead" />
       <item itemvalue="应用程序.TCPServer" />
-      <item itemvalue="应用程序.ReferenceTypeDemo" />
-      <item itemvalue="应用程序.Test" />
+      <item itemvalue="应用程序.ChatClient (测试)" />
+      <item itemvalue="应用程序.ChatClientServer" />
+      <item itemvalue="应用程序.ChatServer" />
+      <item itemvalue="应用程序.ClientNetty" />
+      <item itemvalue="应用程序.ServerNetty" />
+      <item itemvalue="应用程序.NettyClient" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NonBlockingIOExample.fileCopy" />
-        <item itemvalue="JUnit.NonBlockingIOExample.fileRead" />
-        <item itemvalue="JUnit.NioExample.fileWrite" />
-        <item itemvalue="应用程序.Test" />
-        <item itemvalue="应用程序.ReferenceTypeDemo" />
+        <item itemvalue="应用程序.ChatClientServer" />
+        <item itemvalue="应用程序.ChatServer" />
+        <item itemvalue="应用程序.ClientNetty" />
+        <item itemvalue="应用程序.ServerNetty" />
+        <item itemvalue="应用程序.NettyClient" />
       </list>
     </recent_temporary>
   </component>
@@ -232,6 +236,10 @@
       <workItem from="1701539763586" duration="2930000" />
       <workItem from="1701584698592" duration="8392000" />
       <workItem from="1701614721652" duration="1423000" />
+      <workItem from="1701670905087" duration="4514000" />
+      <workItem from="1701710285357" duration="131000" />
+      <workItem from="1701710432777" duration="2866000" />
+      <workItem from="1701759302275" duration="13769000" />
     </task>
     <task id="LOCAL-00001" summary="build(构建): 项目构建">
       <option name="closed" value="true" />
@@ -529,7 +537,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701544298850</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="docs(network-programming): Netty相关笔记">
+      <option name="closed" value="true" />
+      <created>1701774351201</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1701774351201</updated>
+    </task>
+    <task id="LOCAL-00039" summary="fix(network-programming): Netty相关代码示例">
+      <option name="closed" value="true" />
+      <created>1701774448539</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1701774448539</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,6 +565,21 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/03-concurrent-programming" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/04-network-programming" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="04-network-programming" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="origin/master" />
@@ -556,11 +595,6 @@
                   <option value="master" />
                 </option>
               </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/03-concurrent-programming" />
-                </option>
-              </RecentGroup>
             </list>
           </value>
         </entry>
@@ -570,19 +604,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -590,9 +612,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix(JUC): 并发工具类&#10;&#10;循环栅栏的使用示例" />
-    <MESSAGE value="docs(concurrent-programming): 学习笔记更新" />
-    <MESSAGE value="fix(concurrent-programming): 添加Lombok坐标" />
     <MESSAGE value="docs(concurrent-programming): 笔记内容增加并发队列" />
     <MESSAGE value="feat(concurrent-programming): 并发队列&#10;&#10;并发阻塞队列代码示例" />
     <MESSAGE value="Merge branch '03-concurrent-programming'" />
@@ -615,6 +634,13 @@
     <MESSAGE value="chore(network-programming): 项目配置相关" />
     <MESSAGE value="fix(network-programming): BIO代码示例" />
     <MESSAGE value="docs(network-programming): 笔记更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(network-programming): 笔记更新" />
+    <MESSAGE value="docs(network-programming): Netty相关笔记" />
+    <MESSAGE value="docs(network-programming): Netty相关代码示例" />
+    <MESSAGE value="fix(network-programming): Netty相关代码示例" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(network-programming): Netty相关代码示例" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
