@@ -7,10 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="feat(module): 新建database-mysql分支">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="docs(master): 主文档更新&#10;&#10;添加相关笔记链接">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -551,7 +548,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701774448539</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="docs(master): 主文档更新&#10;&#10;添加相关笔记链接">
+      <option name="closed" value="true" />
+      <created>1701947930479</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1701947930479</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -602,7 +607,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="153" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="56" />
+                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="26" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -610,7 +623,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(concurrent-programming): 并发队列&#10;&#10;并发阻塞队列代码示例" />
     <MESSAGE value="Merge branch '03-concurrent-programming'" />
     <MESSAGE value="fix(concurrent-programming): 并发队列&#10;&#10;并发阻塞队列代码示例格式修改" />
     <MESSAGE value="docs(concurrent-programming): 线程池内容更新" />
@@ -633,9 +645,10 @@
     <MESSAGE value="docs(network-programming): 笔记更新" />
     <MESSAGE value="docs(network-programming): Netty相关笔记" />
     <MESSAGE value="docs(network-programming): Netty相关代码示例" />
-    <MESSAGE value="fix(network-programming): Netty相关代码示例" />
     <MESSAGE value="feat(module): 新建database-mysql分支" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(module): 新建database-mysql分支" />
+    <MESSAGE value="fix(network-programming): Netty相关代码示例" />
+    <MESSAGE value="docs(master): 主文档更新&#10;&#10;添加相关笔记链接" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(master): 主文档更新&#10;&#10;添加相关笔记链接" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
