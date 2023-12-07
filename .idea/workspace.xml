@@ -7,12 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="fix(network-programming): Netty相关代码示例">
+    <list default="true" id="a99aeb2e-a78e-4afd-9e6f-0eebda4b70f2" name="更改" comment="feat(module): 新建database-mysql分支">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/ClientNetty.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/ClientNetty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/handler/ServerNettyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/demo/handler/ServerNettyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/_04_network-programming/src/main/java/online/niehong/netty/chat/example/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,28 +64,28 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;04-network-programming&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/workSpace/workSpace/backup-gaoyi/scs-cloud&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "C:/workSpace/workSpace/backup-gaoyi/scs-cloud",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="online.niehong.netty.chat.example.handler" />
@@ -191,7 +190,7 @@
     <list>
       <item itemvalue="应用程序.TCPServer" />
       <item itemvalue="应用程序.ChatClient (测试)" />
-      <item itemvalue="应用程序.ChatClientServer" />
+      <item itemvalue="应用程序.ChatClient" />
       <item itemvalue="应用程序.ChatServer" />
       <item itemvalue="应用程序.ClientNetty" />
       <item itemvalue="应用程序.ServerNetty" />
@@ -199,7 +198,6 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.ChatClientServer" />
         <item itemvalue="应用程序.ChatServer" />
         <item itemvalue="应用程序.ClientNetty" />
         <item itemvalue="应用程序.ServerNetty" />
@@ -612,7 +610,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="docs(concurrent-programming): 笔记内容增加并发队列" />
     <MESSAGE value="feat(concurrent-programming): 并发队列&#10;&#10;并发阻塞队列代码示例" />
     <MESSAGE value="Merge branch '03-concurrent-programming'" />
     <MESSAGE value="fix(concurrent-programming): 并发队列&#10;&#10;并发阻塞队列代码示例格式修改" />
@@ -637,7 +634,8 @@
     <MESSAGE value="docs(network-programming): Netty相关笔记" />
     <MESSAGE value="docs(network-programming): Netty相关代码示例" />
     <MESSAGE value="fix(network-programming): Netty相关代码示例" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(network-programming): Netty相关代码示例" />
+    <MESSAGE value="feat(module): 新建database-mysql分支" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(module): 新建database-mysql分支" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
