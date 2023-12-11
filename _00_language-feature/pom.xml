@@ -3,19 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>online.niehong</groupId>
+        <artifactId>software-development</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-    <groupId>online.niehong</groupId>
-    <artifactId>software-development</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>_01_performance-optimization</module>
-        <module>_02_jvm-hotspot</module>
-        <module>_03_concurrent-programming</module>
-        <module>_04_network-programming</module>
-        <module>_05_database-mysql</module>
-        <module>_00_language-feature</module>
-    </modules>
+    <artifactId>_00_language-feature</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
