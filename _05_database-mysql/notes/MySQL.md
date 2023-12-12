@@ -1662,7 +1662,9 @@ create table u_salary(s_id bigint PRIMARY KEY...) engine=myisam;
 
 
 
-##### 缓冲池-Buffer Pool
+##### 内存结构
+
+###### 【内存结构】缓冲池-Buffer Pool
 
 - **缓冲池Buffer Pool用于加速数据的访问和修改**
 
@@ -1700,3 +1702,148 @@ create table u_salary(s_id bigint PRIMARY KEY...) engine=myisam;
   > 这些改进使得InnoDB的LRU算法能够更好地适应数据库的工作负载，降低磁盘I/O，提高整体性能。
 
 - Buffer Pool中的数据 **以页为存储单位**， 数据结构是 **单向链表**
+
+
+
+###### 【内存结构】修改缓存-ChangeBuffer
+
+- **用于加速 <font color=#f00>非热点数据</font> 中二级索引的写入操作**
+- 修改缓冲对二级索引的修改操作会录入 redo log中
+- 在缓冲到一定量或系统较空闲时进行merge操作(写入磁盘)
+- 修改缓冲在系统表空间中有相应的持久化区域
+- 物理结构为一颗名为ibuf的B+树
+
+
+
+###### 【内存结构】自适应哈希索引-Adaptive Hash Index
+
+- 用于实现对于热数据页的一次查询， **是建立在索引之上的索引**
+
+> 自适应哈希索引（AdaptiveHashIndex，AHI） **用于实现对于热数据页的一次查询。** 是建立在索引之上的索引！使用聚簇索引进行 **数据页定位** 的时候需要根据索引树的高度从根节点走到叶子节点，**通常需要3到4次查询才能定位到数据**。InnoDB根据对索引使用情况的分析和索引字段的分析，通过自调优Self-tuning的方式为索引|顶建立或者删除哈希索引。
+>
+> **AHI的大小为BufferPool的1/64，**在MySQL5.7之后支持分区，以减少对于全局AHI锁的竞争，默认分区数为8。
+>
+> AHI所作用的目标是 **频繁查询的数据页和索引页**， 而由于数据页是聚簇索引的一部分，因此AHI是建立在索引之上的索引，**对于二级索引，若命中AHI，则将直接从AHI获取二级索引I页的记录指针，再根据主键沿着聚簇索引查找数据；若聚簇索引查询同样命中AHI，则直接返回目标数据页的记录指针，此时就可以根据记录指针直接定位数据页。**
+
+- **作用： 对频繁查询的数据页和索引页进一步提速**
+
+**相关SQL命令**
+
+```sql
+-- 查看InnoDB存储引擎状态，包含自适应哈希状态信息(MySQL8已移除该命令)
+show engine innodb status;
+
+-- 查看是否开启自适应哈希配置，默认是开启的
+show variables like 'innodb_adaptive_hash_index';
+```
+
+
+
+
+
+###### 【内存结构】日志缓冲-Log Buffer
+
+- InnoDB使用Log Buffer来缓冲日志文件的写入操作
+-  **内存写入** 加上 **日志文件顺序写** 使得InnoDB日志写入性能极高
+
+![](image/logbuffer.png)
+
+通过上图我们发现，所有的操作都是基于内存的，那么出现故障后应该怎么处理呢？这也是InnoDB遇到的一个飞车重要的问题
+
+
+
+
+
+##### 磁盘结构
+
+​	在磁盘中，InnoDB存储引擎将数据、索引、表结构和其他缓存信息等存放的空间称为表空间(TableSpace)，它是物理存储中的最高层，由段Segment、区extent、页Page、行Row组成
+
+
+
+**常见表空间**
+
+系统表空间(System Tablespace)，关闭独立表空间，所有表数据和索引都会存入系统表空间
+
+独立表空间(File-per-table tablespace)，开启独立表空间，每张表的数据都会存储到一个独立表空间
+
+通用表空间(General Tablespace)
+
+回滚表空间(Undo Tablespace)
+
+临时表空间(The Temporary Tablespace)
+
+
+
+###### 【磁盘结构】系统表空间-System Tablespace
+
+- 系统表空间是InnoDB 数据字典、 **双写缓冲**、 **修改缓冲** 和 **回滚日志** 的存储位置如果关闭独立表空间，它也将存储所有表数据和索引
+
+  - 数据字典： 表对象的元数据信息（表结构、索引、列信息等等）
+  - **双写缓冲：** 保证写入数据时，页数据的完整性，防止部分写失效问题
+  - **修改缓冲：** 内存中changeBuffer对应的持久化区
+  - **回滚日志：** 实现数据回滚时对数据的恢复，MVCC实现的重要组成
+
+- 默认大小12M，文件名称ibdata1，配置参数：innodb_data_file_path
+
+- 系统表空间会自动增长，每次增量64MB，且增长之后的文件不可缩减
+
+- ```sql
+  -- 查看系统表空间
+  show variables like 'innodb_data_file_path';
+  ```
+
+
+
+
+
+###### 【磁盘结构】独立表空间-File-per-table Tablespace
+
+- **独立表空间用于存放每个表的数据和索引。在5.7版本中默认开启，初始化大小是96KB**
+- 其他类型的信息，如：回滚日志、双写缓冲区、系统事务信息、修改缓冲等仍存放于系统表空间内，因此即使用了独立表空间，系统表空间也会不断增长
+- 开启关闭：innodb_file_per_table=ONlOFF
+- 在数据库文件夹内，为每张表单独创建表空间 **表名.ibd** 文件荐数据写索引l
+
+
+
+
+
+###### 【磁盘结构】通用表空间-GeneralTablespace
+
+- 通用表空间存在的目的是为了在系统表空间与独立表空间之间作出平衡
+- 系统表空间与独立表空间中的表可以向通用表空间移动，反之亦可
+
+
+
+
+
+【磁盘结构】回滚表空间-Undo Tablespace
+
+- UndoTableSpace 用于存放一个或多个undolog 文件，默认大小为10MB
+- Undolog默认存储在系统表空间，在5.7版本中支持自定义到独立的表空间
+
+
+
+
+
+###### 【磁盘结构】临时表空间-TheTemporaryTablespace
+
+- MySQL5.7之前临时表存储在系统表空间，这样会导致ibdata在使用临时表的场景下疯狂增长
+- MySQL5.7版本里InnoDB引擎从系统表空间中抽离出临时表空间独立保存临时表数据
+- 配置属性：innodb_temp_data_file_path
+
+
+
+
+
+##### 表空间存储结构
+
+![](image/tablespace.png)
+
+**<font color=#f00>表空间由段（Segment）、区（extent）、页（Page）、行（Row）组成</font>**
+
+
+
+###### 01-段(Segment)
+
+- 表空间由各个段组成，段类型分数据段、索引段、回滚段
+- MySQL的索引数据结构是B+树，这个树有叶子节点和非叶子节点
