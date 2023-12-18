@@ -1847,3 +1847,48 @@ show variables like 'innodb_adaptive_hash_index';
 
 - 表空间由各个段组成，段类型分数据段、索引段、回滚段
 - MySQL的索引数据结构是B+树，这个树有叶子节点和非叶子节点
+- 一个段包含多个区，至少有一个区，段扩展的最小单位是区
+  -  **数据段** 是叶子节点Leafnodesegment
+  -  **索引段** 是非叶子节点Non-Leafnodesegment
+
+
+
+###### 02-区(Extent)
+
+- 区是由连续的页组成的空间，大小固定为1MB
+- 默认情况下，一个区里有64个页
+- 为了保证区的连续性，InnoDB一次会从磁盘申请4-5个区
+
+
+
+###### 03-页(Page)
+
+-  **页是InnoDB 的基本存储单位，** 页默认大小是16K(可配置innodb_page_size，不建议更改，单位是字节)，InnoDB首次加载后便无法更改
+- **操作系统读写磁盘最小单位是页，大小是4KB(4096字节)**
+- 磁盘存储数据量最小单位是512字节(byte)
+
+
+
+###### 04-行(Row)
+
+- InnoDB的数据是以行为单位存储，一个页中包含多个行
+- InnoDB提供4种行格式：Compact、Redundant、Dynamic和Compressed
+- 默认行格式Dynamic
+
+```sql
+-- 创建表时指定行格式
+CREATE TABLE user(u_id bigint AUTO_INCREMENT) ROW_FORMAT=DYNAMIC;
+
+-- 修改表的行格式
+ALTER TABLE tablename ROW_FORMAT=行格式名称;
+
+-- 修改默认行格式
+SET GLOBAL innodb_default_row_format=行格式名称;
+
+-- 查看表的行格式
+SHOW TABLE STATUS LIKE '表名';
+```
+
+
+
+##### 内存数据落盘
