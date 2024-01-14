@@ -320,12 +320,201 @@ select t.avg_sal - e.avg_sal from (select avg(sal) avg_sal from emp where job = 
 
 #### lazy-init属性的作用
 
+​	延迟初始化，也叫懒加载，将一个被IOC容器所管理的对象的lazy-init属性设置为true，表示只有在获取该对象时，才会被IOC容器所创建，注意在scope属性为“prototype”时，该属性会失效，在实际使用中，合理使用lazy-init属性能缓解程序启动时的压力，提高启动速度，也让jvm的内存占用更小
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="online.niehong._002.user.User"/>
+
+    <bean id="carLazyInit" class="online.niehong._002.car.Car" lazy-init="true"/>
+</beans>
+```
+
 
 
 #### @autowired与Resource有什么区别
 
+- **autowired：** 是spring自身提供的一个注解
+  - 只能按照类型在IOC容器中匹配对象
+- **resouece：** 是java官方提供的一个注解
+  - 允许按照名称进行匹配: @Resource(name = "xxx") 
+  - 先按照给定的name进行匹配，最后再按照类型进行匹配(没有设置name时，则默认将字段名作用name值)
+
+
+
+#### AOP有几种通知类型
+
+| 通知类型                  | 描述                                         |
+| ------------------------- | -------------------------------------------- |
+| 前置通知[Before]          | 在执行某个方法前执行                         |
+| 后置通知[After]           | 在执行完某个方法后执行                       |
+| 返回通知[After returning] | 将某个方法的返回值返回                       |
+| 异常通知[After throwing]  | 将某个方法的异常返回                         |
+| 环绕通知[Around]          | 能包括上述索引通知类型，也是最常用的通知类型 |
+
+代码示例
+
+```java
+package online.niehong._002.aspect;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+
+/**
+ * 004 切面类
+ *
+ * @author NieHong
+ * @date 2024/01/04
+ */
+public class _004_SampleAspect {
+
+    /**
+     * 前置通知方法
+     *
+     * @param jp jp
+     */
+    public void before(JoinPoint jp) {
+        // 获取即将要执行的类名称
+        String clzName = jp.getTarget().getClass().getName();
+        // 获取即将要执行的方法名
+        String method = jp.getSignature().getName();
+        // 方法参数
+        Object[] args = jp.getArgs();
+
+        System.out.println("前置通知执行 [clzName]: " + clzName + ",  [method]: " + method + ", [args]: " + args[0]);
+    }
+
+    /**
+     * 后置通知方法
+     *
+     * @param jp jp
+     */
+    public void after(JoinPoint jp) {
+        // 获取即将要执行的类名称
+        String clzName = jp.getTarget().getClass().getName();
+        // 获取即将要执行的方法名
+        String method = jp.getSignature().getName();
+        // 方法参数
+        Object[] args = jp.getArgs();
+
+        System.out.println("后置通知执行 [clzName]: " + clzName + ",  [method]: " + method + ", [args]: " + args[0]);
+    }
+
+    /**
+     * 返回通知
+     *
+     * @param jp  jp
+     * @param ret ret
+     */
+    public void afterReturning(JoinPoint jp, Object ret) {
+        // 获取即将要执行的类名称
+        String clzName = jp.getTarget().getClass().getName();
+        // 获取即将要执行的方法名
+        String method = jp.getSignature().getName();
+        // 方法参数
+        Object[] args = jp.getArgs();
+        System.out.println("返回通知 [clzName]: " + clzName + ",  [method]: " + method + ", [args]: " + args[0]);
+        System.out.println("[返回内容]: " + ret);
+    }
+
+    /**
+     * 异常通知
+     *
+     * @param jp jp
+     */
+    public void exception(JoinPoint jp, Throwable t) {
+        // 获取即将要执行的类名称
+        String clzName = jp.getTarget().getClass().getName();
+        // 获取即将要执行的方法名
+        String method = jp.getSignature().getName();
+        // 方法参数
+        Object[] args = jp.getArgs();
+        System.out.println("异常通知 [clzName]: " + clzName + ",  [method]: " + method + ", [args]: " + args[0]);
+        System.out.println("[异常信息]: " + t);
+    }
+
+
+    public void around(ProceedingJoinPoint pjp) {
+        // 获取即将要执行的类名称
+        String clzName = pjp.getTarget().getClass().getName();
+        // 获取即将要执行的方法名
+        String method = pjp.getSignature().getName();
+        // 方法参数
+        Object[] args = pjp.getArgs();
+
+        System.out.println("环绕通知");
+
+        System.out.println("前置通知执行 [clzName]: " + clzName + ",  [method]: " + method + ", [args]: " + args[0]);
+
+        try {
+            Object r = pjp.proceed();
+            System.out.println("返回通知 [clzName]: " + clzName + ",  [method]: " + method + ", [args]: " + args[0]);
+            System.out.println("[返回内容]: " + r);
+        } catch (Throwable e) {
+            System.out.println("异常通知 [clzName]: " + clzName + ",  [method]: " + method + ", [args]: " + args[0]);
+            System.out.println("[异常信息]: " + e);
+            throw new RuntimeException(e);
+        } finally {
+            System.out.println("后置通知执行 [clzName]: " + clzName + ",  [method]: " + method + ", [args]: " + args[0]);
+        }
+    }
+}
+
+```
+
+
+
+spring-application.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--声明切面类-->
+    <bean id="sampleAspect" class="online.niehong._002.aspect._004_SampleAspect"/>
+    <bean id="print" class="online.niehong._002.print.Print"/>
+
+    <!--配置Spring AOP -->
+    <aop:config>
+        <!--配置过程中引用切面类-->
+        <aop:aspect ref="sampleAspect">
+            <!--配置切入点-->
+            <aop:pointcut id="samplePointcut" expression="execution(* online.niehong._002.print.Print.print(..))"/>
+            <!--定义通知-->
+<!--            &lt;!&ndash;前置通知&ndash;&gt;-->
+<!--            <aop:before pointcut-ref="samplePointcut" method="before" />-->
+<!--            &lt;!&ndash;后置通知&ndash;&gt;-->
+<!--            <aop:after pointcut-ref="samplePointcut" method="after" />-->
+<!--            &lt;!&ndash;返回通知&ndash;&gt;-->
+<!--            <aop:after-returning pointcut-ref="samplePointcut" method="afterReturning" returning="ret" />-->
+<!--            &lt;!&ndash;异常通知&ndash;&gt;-->
+<!--            <aop:after-throwing pointcut-ref="samplePointcut" method="exception" throwing="t" />-->
+            <!--环绕通知-->
+            <aop:around pointcut-ref="samplePointcut" method="around" />
+        </aop:aspect>
+    </aop:config>
+</beans>
+```
+
+
+
+#### Spring的声明式事务
+
+- 声明式事务是指利用AOP自动提交，回滚数据库事务
+- 声明式事务规则：进入方法打开事务，方法成功执行完成提交事务，方法运行时异常则回滚事务
+- @Transactional是声明式事务的注解
 
 
 
 
-### 
+
+#### SpringMVC实现REST风格
+
+- REST(表述性状态传递)一URL表示要访问的资源
+
+- GET/POST/PUT/DELETE对应查询、新增、更新、删除操作
+- REST风格响应只返回数据，通常是以JSON格式体现

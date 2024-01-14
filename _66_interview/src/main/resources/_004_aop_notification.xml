@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--声明切面类-->
+    <bean id="sampleAspect" class="online.niehong._002.aspect._004_SampleAspect"/>
+    <bean id="print" class="online.niehong._002.print.Print"/>
+
+    <!--配置Spring AOP -->
+    <aop:config>
+        <!--配置过程中引用切面类-->
+        <aop:aspect ref="sampleAspect">
+            <!--配置切入点-->
+            <aop:pointcut id="samplePointcut" expression="execution(* online.niehong._002.print.Print.print(..))"/>
+            <!--定义通知-->
+<!--            &lt;!&ndash;前置通知&ndash;&gt;-->
+<!--            <aop:before pointcut-ref="samplePointcut" method="before" />-->
+<!--            &lt;!&ndash;后置通知&ndash;&gt;-->
+<!--            <aop:after pointcut-ref="samplePointcut" method="after" />-->
+<!--            &lt;!&ndash;返回通知&ndash;&gt;-->
+<!--            <aop:after-returning pointcut-ref="samplePointcut" method="afterReturning" returning="ret" />-->
+<!--            &lt;!&ndash;异常通知&ndash;&gt;-->
+<!--            <aop:after-throwing pointcut-ref="samplePointcut" method="exception" throwing="t" />-->
+            <!--环绕通知-->
+            <aop:around pointcut-ref="samplePointcut" method="around" />
+        </aop:aspect>
+    </aop:config>
+</beans>
