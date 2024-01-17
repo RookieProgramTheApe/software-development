@@ -515,6 +515,172 @@ spring-application.xml
 #### SpringMVC实现REST风格
 
 - REST(表述性状态传递)一URL表示要访问的资源
-
 - GET/POST/PUT/DELETE对应查询、新增、更新、删除操作
 - REST风格响应只返回数据，通常是以JSON格式体现
+
+
+
+
+
+#### SpringMVC拦截器的作用
+
+- SpringMVC拦截器用于对控制器方法进行前置、后置处理
+- 拦截器的底层实现技术是AOP
+- 拦截器必须实现HandlerInterceptor接口
+
+
+
+1. preHandle() 方法
+   - 调用时机：在请求实际被Controller中的处理器方法处理之前调用。
+   - 返回值类型：布尔值（`boolean`）。
+   - 返回值意义：
+     - `true`：表示允许请求继续进行后续的处理器执行链（如访问目标控制器方法），同时会继续调用后续的拦截器（如果有的话）以及执行`postHandle()`和`afterCompletion()`方法。
+     - `false`：表示当前请求将被拦截，并且不会继续传递给后续的拦截器或目标处理器方法。同时，后续的`postHandle()`和`afterCompletion()`方法也不会被执行。
+
+通过控制`preHandle()`方法的返回值，开发者可以实现诸如权限检查、登录验证等预处理逻辑，决定是否让请求继续进行下去或者提前终止流程。
+
+```java
+/**
+ * @author NieHong
+ */
+public class MyHandlerInterceptor implements HandlerInterceptor {
+    public MyHandlerInterceptor() {
+        System.out.println("MyHandlerInterceptor constructor");
+    }
+    /**
+    *进入controller方法前执行
+    */
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        System.out.println("MyHandlerInterceptor preHandle, request: " + request.getRequestURI());
+        return true;
+    }
+    
+    /**
+    *controller方法响应前执行
+    */
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        System.out.println("MyHandlerInterceptor postHandle");
+    }
+}
+
+```
+
+
+
+#### SpringMVC执行流程
+
+![](image/springmvc.png)
+
+1. **客户端发起请求**： 用户通过浏览器或其他HTTP客户端向服务器发送一个HTTP请求到指定的URL。
+2. **前端控制器（DispatcherServlet）接收请求**： Spring MVC中的核心组件之一——DispatcherServlet作为前端控制器接收到请求。它是所有请求的入口点，负责协调整个流程。
+3. **处理器映射器（HandlerMapping）**： DispatcherServlet询问多个HandlerMapping来确定哪个处理器（即Controller类的方法）应该处理这个请求。这通常基于请求的URL、HTTP方法以及其他可能的属性匹配。
+4. **处理器适配器（HandlerAdapter）**： 当找到合适的处理器后，DispatcherServlet会使用HandlerAdapter与选定的处理器交互。HandlerAdapter将请求参数绑定到处理器方法，并调用相应的方法进行业务逻辑处理。
+5. **Controller处理请求**： 控制器类的方法被调用，它执行业务逻辑，如从数据库中获取数据或进行计算。然后控制器可能会更新模型对象（Model），并将控制权返回给DispatcherServlet。
+6. **视图解析器（ViewResolver）**： 控制器方法执行完毕后，可能返回一个逻辑视图名或者直接返回一个具体的视图对象。视图解析器根据逻辑视图名和配置查找相应的视图技术实现（如JSP、Thymeleaf等），并准备渲染视图所需的模型数据。
+7. **模型数据填充（ModelAndView）**： 根据Controller返回的结果，DispatcherServlet将处理结果（如果有）与任何其他附加的模型数据组合在一起，形成一个ModelAndView对象。
+8. **视图渲染响应**： 视图负责将模型数据转换为对客户端有意义的响应内容，通常是HTML页面。视图渲染完成后，其内容会被写入HTTP响应体中。
+9. **响应发送至客户端**： 最终，服务器端生成的HTTP响应通过网络发送回客户端（浏览器），用户看到的是经过渲染后的最终视图内容。
+
+
+
+
+
+#### spring、springmvc、springboot的区别
+
+- Spring是所有spring应用的基础，提供了IOC与AOP特性
+- SpringMVC是Spring用来提供Web支持的框架
+- SpringBoot是Spring体系的敏捷开发框架，提高了我们的开发效率，提供了大量的默认配置模版，让我们不必编写大量样板式代码就能构建一个JavaWeb应用程序
+
+
+
+
+
+### Mybatis
+
+#### 缓存机制
+
+- Mybatis存在两极缓存
+  - 一级缓存与SqlSession绑定，**默认开启**
+    - 生命周期与SqlSession一致，随SqlSession创建而创建
+    - 内部实现为HashMap
+  - 二级缓存是应用全局缓存，所有SqlSession共享
+    - 生命周期与sessionFactory一致
+    - 内部实现可以是HashMap，也可以是一些缓存框架，比如Redis
+- 缓存对比
+  - 二级缓存存活时间更长，所需存储空间更大，缓存命中率更高(命中率=总命中次数/总查询次数)
+- 使用场景
+  - 查询多，修改少的数据，因为更新后，mybatis缓存数据也会跟着更新，这是为了保证数据的一致性
+
+一级缓存代码示例:
+
+```java
+/**
+ * mybatis runner
+ *
+ * @author NieHong
+ * @date 2024/01/14
+ */
+public class MybatisRunner {
+
+
+    public static void main(String[] args) {
+        String source = "mybatis.xml";
+        InputStream inputStream = MybatisRunner.class.getClassLoader().getResourceAsStream(source);
+        SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+        SqlSession sqlSession = sessionFactory.openSession();
+        User u1 = sqlSession.selectOne("online.niehong.mapper.UserMapper.selectUserById", 7499);
+        User u2 = sqlSession.selectOne("online.niehong.mapper.UserMapper.selectUserById", 7499);
+
+        System.out.println("u1 == u2: " + (u1 == u2));
+        sqlSession.close();
+    }
+}
+```
+
+
+
+
+
+二级缓存代码示例：
+
+```java
+// 1、查询返回的bean需要实现序列化接口
+@Data
+public class User implements Serializable {
+    static final long serialVersionUID = 1L;
+    private int empno;
+    private String ename;
+    private String job;
+    private Timestamp hiredate;
+    private BigDecimal sal;
+    private BigDecimal comm;
+    private int deptno;
+}
+
+
+// 2、对应mapper文件中开启二级缓存，设置属性
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.niehong.mapper.UserMapper">
+    <!--
+    size: 容纳的对象数量(默认值是 1024)
+    eviction: 淘汰策略(默认策略是LRU)
+        FIFO: 先进先出
+        LRU: 最近最少使用
+    flushInterval: 刷新间隔
+        单位: 毫秒(默认是没有刷新间隔，缓存仅仅会在调用语句时刷新)
+    readOnly: 是否只读(默认值是 false)
+     -->
+    <cache size="512" eviction="LRU" flushInterval="10000"  readOnly="true"/>
+    <!-- 可通过userCache来指定哪些查询被缓存 -->
+    <select id="selectUserById" resultType="online.niehong.User" useCache="true">
+        select * from emp where empno = #{id}
+    </select>
+</mapper>
+```
+
+分布式二级缓存：mybatis默认的二级缓存是单机工作的，无法实现分布式缓存，我们可以通过更改mybatis二级缓存的实现方式为redis来实现分布式缓存
+
