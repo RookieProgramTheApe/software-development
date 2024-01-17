@@ -20,7 +20,59 @@
 
 
 
-## JavaSE常见面试题
+## Java常见面试题
+
+### 进程、线程、协程是什么
+
+​	进程里包含一个或多个线程，拥有自己独立的逻辑内存资源，还有文件和网络句柄等信息，在谈到操作系统时，我们通常会说这是32位或64位操作系统，这里的数值表示的是这个内存的寻址空间，32位就代表2的32次方（4GB），也就是说每个应用程序的可分配的最大内存空间为4GB，每个进程的内存都是独立的，这样保证了隔离性，避免彼此相互干扰。
+
+​	线程是进程内部的执行流，是操作系统进行运算调度的最小单元，拥有独立的栈、程序计数器、寄存器、TLS。同一个进程内的多个线程可以并发执行，但在访问共享资源时需要解决资源竞争的问题。
+
+​	协程是一种用户态的轻量级线程，也称为合作式多任务或者微线程。与线程最大的区别是，线程是由操作系统内核直接调度的，而协程是由用户程序自身控制调度的，从系统开销上来说，协程更小。因为整个调度过程发生在用户态，所以在实现高并发时会更加高效且可控。
+
+
+
+### 存储和寻址
+
+![](image/storage.png)
+
+**寻址空间：** 每个进程里指针可以取到的范围，跟操作系统位数有关，操作系统的寻址过程如下图所示，指针指向的是进程所独立的逻辑内存区域，通过逻辑内存再指向真正的物理内存，需要注意的是，当物理内存不够时，操作系统会将虚拟内存通过分页的方式，把数据交换到物理内存中（将物理内存中许久未使用 的内存区域与虚拟内存进行交换），一个良好的程序运行，应该保证常用的数据都在物理内存中，这样就不会发生频繁的分页。
+
+![](image/memory.png)
+
+
+
+
+
+### vue实现双向绑定的底层原理
+
+在 Vue 2.x 中，双向绑定的核心原理如下：
+
+1. **数据劫持**：
+   - 使用 `Object.defineProperty()` 钩子方法来监听数据对象属性的变化。Vue 在初始化阶段遍历组件实例的 `data` 对象，将其中每一个属性转换为可响应式的，即为每个属性添加 getter 和 setter。
+   - 当读取属性时，getter 会被调用，触发依赖收集（Dependent Reactions Collection）过程，将当前正在渲染或计算的 Watcher（观察者）实例注册为依赖项。
+   - 当设置属性时，setter 会被调用，它会触发相应的属性变更通知，进而通知所有依赖于该属性的 Watcher 实例，执行视图更新。
+2. **观察者模式**：
+   - Vue 创建了一个观察者系统，数据对象作为被观察的对象，而各个组件实例及其相关的渲染函数和计算属性则是观察者。
+   - 当数据发生变化时，观察者模式使得数据能够主动通知相关的观察者（Watcher）进行更新操作。
+
+在 Vue 3.x 中，Vue 则引入了基于 ES6 Proxies 的新实现：
+
+1. **Proxy 数据劫持**：
+   - 通过 `new Proxy()` API 替换了 `Object.defineProperty()`，Proxy 可以提供更全面的拦截机制，无需递归遍历对象属性，可以直接代理整个对象，使得响应式系统的性能和易用性得到提升。
+2. **依赖收集与调度更新**：
+   - 在 Vue 3 中，依赖收集和通知更新的机制进行了优化，使用了更先进的依赖跟踪算法，如“调度追踪”(scheduler tracking)，并在内部实现了一套更加灵活的反应式系统 —— 重新设计的 Effect（效果）和 Reactive（响应式）API。
+
+总之，在Vue中，双向绑定的工作流程大致如下：
+
+- 用户在界面上修改数据时，视图层捕获到变化并通过事件触发数据更新。
+- 数据变化通过Vue的数据响应式系统广播出去。
+- 与变化数据有关联的组件接收到通知后，自动触发视图层重新渲染，完成视图的更新。
+- 同理，当数据模型层发生变化时，也会通过相同的响应式机制，触发视图层的相应更新，实现了从数据到视图的绑定。
+
+双向绑定让开发者能够在模板中简单地使用 v-model 指令或者其他形式的绑定，就能实现在用户交互过程中数据与视图状态始终保持一致的效果。
+
+
 
 ### JDK、JRE、JVM有什么区别
 
@@ -515,6 +567,172 @@ spring-application.xml
 #### SpringMVC实现REST风格
 
 - REST(表述性状态传递)一URL表示要访问的资源
-
 - GET/POST/PUT/DELETE对应查询、新增、更新、删除操作
 - REST风格响应只返回数据，通常是以JSON格式体现
+
+
+
+
+
+#### SpringMVC拦截器的作用
+
+- SpringMVC拦截器用于对控制器方法进行前置、后置处理
+- 拦截器的底层实现技术是AOP
+- 拦截器必须实现HandlerInterceptor接口
+
+
+
+1. preHandle() 方法
+   - 调用时机：在请求实际被Controller中的处理器方法处理之前调用。
+   - 返回值类型：布尔值（`boolean`）。
+   - 返回值意义：
+     - `true`：表示允许请求继续进行后续的处理器执行链（如访问目标控制器方法），同时会继续调用后续的拦截器（如果有的话）以及执行`postHandle()`和`afterCompletion()`方法。
+     - `false`：表示当前请求将被拦截，并且不会继续传递给后续的拦截器或目标处理器方法。同时，后续的`postHandle()`和`afterCompletion()`方法也不会被执行。
+
+通过控制`preHandle()`方法的返回值，开发者可以实现诸如权限检查、登录验证等预处理逻辑，决定是否让请求继续进行下去或者提前终止流程。
+
+```java
+/**
+ * @author NieHong
+ */
+public class MyHandlerInterceptor implements HandlerInterceptor {
+    public MyHandlerInterceptor() {
+        System.out.println("MyHandlerInterceptor constructor");
+    }
+    /**
+    *进入controller方法前执行
+    */
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        System.out.println("MyHandlerInterceptor preHandle, request: " + request.getRequestURI());
+        return true;
+    }
+    
+    /**
+    *controller方法响应前执行
+    */
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        System.out.println("MyHandlerInterceptor postHandle");
+    }
+}
+
+```
+
+
+
+#### SpringMVC执行流程
+
+![](image/springmvc.png)
+
+1. **客户端发起请求**： 用户通过浏览器或其他HTTP客户端向服务器发送一个HTTP请求到指定的URL。
+2. **前端控制器（DispatcherServlet）接收请求**： Spring MVC中的核心组件之一——DispatcherServlet作为前端控制器接收到请求。它是所有请求的入口点，负责协调整个流程。
+3. **处理器映射器（HandlerMapping）**： DispatcherServlet询问多个HandlerMapping来确定哪个处理器（即Controller类的方法）应该处理这个请求。这通常基于请求的URL、HTTP方法以及其他可能的属性匹配。
+4. **处理器适配器（HandlerAdapter）**： 当找到合适的处理器后，DispatcherServlet会使用HandlerAdapter与选定的处理器交互。HandlerAdapter将请求参数绑定到处理器方法，并调用相应的方法进行业务逻辑处理。
+5. **Controller处理请求**： 控制器类的方法被调用，它执行业务逻辑，如从数据库中获取数据或进行计算。然后控制器可能会更新模型对象（Model），并将控制权返回给DispatcherServlet。
+6. **视图解析器（ViewResolver）**： 控制器方法执行完毕后，可能返回一个逻辑视图名或者直接返回一个具体的视图对象。视图解析器根据逻辑视图名和配置查找相应的视图技术实现（如JSP、Thymeleaf等），并准备渲染视图所需的模型数据。
+7. **模型数据填充（ModelAndView）**： 根据Controller返回的结果，DispatcherServlet将处理结果（如果有）与任何其他附加的模型数据组合在一起，形成一个ModelAndView对象。
+8. **视图渲染响应**： 视图负责将模型数据转换为对客户端有意义的响应内容，通常是HTML页面。视图渲染完成后，其内容会被写入HTTP响应体中。
+9. **响应发送至客户端**： 最终，服务器端生成的HTTP响应通过网络发送回客户端（浏览器），用户看到的是经过渲染后的最终视图内容。
+
+
+
+
+
+#### spring、springmvc、springboot的区别
+
+- Spring是所有spring应用的基础，提供了IOC与AOP特性
+- SpringMVC是Spring用来提供Web支持的框架
+- SpringBoot是Spring体系的敏捷开发框架，提高了我们的开发效率，提供了大量的默认配置模版，让我们不必编写大量样板式代码就能构建一个JavaWeb应用程序
+
+
+
+
+
+### Mybatis
+
+#### 缓存机制
+
+- Mybatis存在两极缓存
+  - 一级缓存与SqlSession绑定，**默认开启**
+    - 生命周期与SqlSession一致，随SqlSession创建而创建
+    - 内部实现为HashMap
+  - 二级缓存是应用全局缓存，所有SqlSession共享
+    - 生命周期与sessionFactory一致
+    - 内部实现可以是HashMap，也可以是一些缓存框架，比如Redis
+- 缓存对比
+  - 二级缓存存活时间更长，所需存储空间更大，缓存命中率更高(命中率=总命中次数/总查询次数)
+- 使用场景
+  - 查询多，修改少的数据，因为更新后，mybatis缓存数据也会跟着更新，这是为了保证数据的一致性
+
+一级缓存代码示例:
+
+```java
+/**
+ * mybatis runner
+ *
+ * @author NieHong
+ * @date 2024/01/14
+ */
+public class MybatisRunner {
+
+
+    public static void main(String[] args) {
+        String source = "mybatis.xml";
+        InputStream inputStream = MybatisRunner.class.getClassLoader().getResourceAsStream(source);
+        SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+        SqlSession sqlSession = sessionFactory.openSession();
+        User u1 = sqlSession.selectOne("online.niehong.mapper.UserMapper.selectUserById", 7499);
+        User u2 = sqlSession.selectOne("online.niehong.mapper.UserMapper.selectUserById", 7499);
+
+        System.out.println("u1 == u2: " + (u1 == u2));
+        sqlSession.close();
+    }
+}
+```
+
+
+
+
+
+二级缓存代码示例：
+
+```java
+// 1、查询返回的bean需要实现序列化接口
+@Data
+public class User implements Serializable {
+    static final long serialVersionUID = 1L;
+    private int empno;
+    private String ename;
+    private String job;
+    private Timestamp hiredate;
+    private BigDecimal sal;
+    private BigDecimal comm;
+    private int deptno;
+}
+
+
+// 2、对应mapper文件中开启二级缓存，设置属性
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.niehong.mapper.UserMapper">
+    <!--
+    size: 容纳的对象数量(默认值是 1024)
+    eviction: 淘汰策略(默认策略是LRU)
+        FIFO: 先进先出
+        LRU: 最近最少使用
+    flushInterval: 刷新间隔
+        单位: 毫秒(默认是没有刷新间隔，缓存仅仅会在调用语句时刷新)
+    readOnly: 是否只读(默认值是 false)
+     -->
+    <cache size="512" eviction="LRU" flushInterval="10000"  readOnly="true"/>
+    <!-- 可通过userCache来指定哪些查询被缓存 -->
+    <select id="selectUserById" resultType="online.niehong.User" useCache="true">
+        select * from emp where empno = #{id}
+    </select>
+</mapper>
+```
+
+分布式二级缓存：mybatis默认的二级缓存是单机工作的，无法实现分布式缓存，我们可以通过更改mybatis二级缓存的实现方式为redis来实现分布式缓存
+
