@@ -1137,7 +1137,7 @@ public class FinalizeEscapeGC {
 
 #### jps
 
-​	查看Java进程，相当于Linux下的PS命令，只不过她只列出Java进程
+​	查看Java进程，相当于Linux下的PS命令，只不过他只列出Java进程
 
 ```java
 jps // 列出java程序进程ID和Main函数名称
@@ -1296,7 +1296,9 @@ jstack [option] PID > 文件 // 将当前时间点指定进程的dump堆栈信�
 
 
 
+#### jconsole
 
+​	一个图形化的监控工具，用于监控和分析 JVM 的性能。
 
 
 
