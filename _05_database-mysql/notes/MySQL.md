@@ -1346,6 +1346,31 @@ SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 
 
 
+**事务相关常用命令**
+
+```sql
+# 查看详细事务信息（包含进程ID）
+SELECT 
+    trx.trx_id,
+    trx.trx_state,
+    trx.trx_started,
+    trx.trx_query,
+    pl.id AS process_id,
+    pl.user,
+    pl.host,
+    pl.db,
+    pl.command,
+    pl.time,
+    pl.state,
+    pl.info
+FROM information_schema.INNODB_TRX trx
+JOIN information_schema.PROCESSLIST pl
+    ON trx.trx_mysql_thread_id = pl.id;
+    
+# 中止事务
+kill process_id;
+```
+
 
 
 ## 进阶知识
@@ -2667,3 +2692,26 @@ select * from t_multiple_index where a=13 and b>15 and c='5' and d='pdf';
    - 可以使用覆盖索引
 
 **创建原则：** 组合索引应该把频繁用到的列、区分度高的值放在前面。频繁使用代表索引的利用率 高，区分度高代表筛选粒度大，这样做可最大限度利用索引价值，缩小筛选范围
+
+
+
+
+
+
+
+### 常见内置参数
+
+```sql
+ # innodb的锁超时时间
+ innodb_lock_wait_timeout
+ 
+ # 查看当前的 innodb_lock_wait_timeout 值
+ SHOW VARIABLES LIKE 'innodb_lock_wait_timeout';
+ 
+ # 临时修改 innodb_lock_wait_timeout（仅对当前会话有效）
+ SET SESSION innodb_lock_wait_timeout = 120;
+ 
+ # 全局修改 innodb_lock_wait_timeout（对所有会话有效）
+ SET GLOBAL innodb_lock_wait_timeout = 120;
+```
+
